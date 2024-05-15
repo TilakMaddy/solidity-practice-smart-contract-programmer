@@ -48,8 +48,11 @@ contract FunkyStuff {
     function doFunkyStuff() external view {
         uint[] memory o = new uint[](2);
         
-        // getOnePlusSecondNumber(o); //<-- NOT allowed
+        // getOnePlusSecondNumber(o); //<-- NOT allowed 
+
+        // The below methods makes an external call and is inefficient
         FunkyStuff(address(this)).getOnePlusSecondNumber(o); // <-- allowed
+        this.getOnePlusSecondNumber(o); // <-- allowed
     }
 
     function getOnePlusSecondNumber(uint[] calldata numbers) public pure returns(uint) {
