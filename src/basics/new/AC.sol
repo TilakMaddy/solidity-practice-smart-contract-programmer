@@ -10,4 +10,8 @@ pragma solidity 0.8.19;
 
  * is a[4] true ??? NO !! you cannot have bool storage - compiler error
  * 
+ * 
+ * ---
+ * 
+ * selfdestruct(payable(msg.sender)) -> suicides and force sends money
  */
