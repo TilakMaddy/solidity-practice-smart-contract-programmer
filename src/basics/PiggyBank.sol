@@ -8,14 +8,15 @@ pragma solidity 0.8.19;
 
 contract PiggyBank {
     address private immutable owner;
+
     event Withdraw(address to);
-    event Deposit(uint amount);
+    event Deposit(uint256 amount);
 
     constructor() {
         owner = msg.sender;
     }
 
-    receive() external payable { 
+    receive() external payable {
         emit Deposit(msg.value);
     }
 

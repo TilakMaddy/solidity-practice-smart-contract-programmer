@@ -21,25 +21,17 @@ contract T {
 
 // If you need to determine constructor parameter based
 contract U is S, T {
-    constructor(string memory name) T(name) S(name) {
-
-    }
+    constructor(string memory name) T(name) S(name) {}
 }
-
 
 // If you know the inputs when writing code
 contract V is S("Hello"), T("Hello") {
-    constructor() {
-
-    }
+    constructor() {}
 }
 
-
-// Combined style 
+// Combined style
 contract W is S("Hello"), T {
-    constructor(string memory name) T(modifyName(name)) {
-
-    }
+    constructor(string memory name) T(modifyName(name)) {}
 
     function modifyName(string memory oldName) internal pure returns (string memory newName) {
         newName = string.concat(oldName, " Sr.");
@@ -47,7 +39,7 @@ contract W is S("Hello"), T {
 }
 
 // Order of initialzing depends on the order of inheritance declared
-// in the first line of  contract definition. 
+// in the first line of  contract definition.
 // (Not on the order in which they are called in the constr)
 
 // IN all the examples above, first S() is called, then T(), then (U|V|W)()

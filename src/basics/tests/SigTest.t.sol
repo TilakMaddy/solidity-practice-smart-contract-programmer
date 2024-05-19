@@ -5,7 +5,6 @@ import "lib/forge-std/src/Test.sol";
 import "../new/Sig.sol";
 
 contract SigTest is Test {
-
     VerifySignature public v;
 
     function setUp() external {
@@ -24,10 +23,10 @@ contract SigTest is Test {
         * ethereum.request({ method: "personal_sign", params: ["0xE65a687748A2A86b9B6e4E290709B665FD1781F5", "0xe1c14908f19e6bad2d29f9b077dff81c63929248c71c5a6e5ad6fc481694ccbe"]}).then(console.log)
         */
 
-        bytes memory sign = abi.encodePacked(hex"d11793a17f33dd88d0a1b0331628f482b24e6b7b3cba3d3d5144127d908ef7f33ba4738b889853d38911b73e129df2756a8162ce7bb5a18b004afb772946b45a1b");
+        bytes memory sign = abi.encodePacked(
+            hex"d11793a17f33dd88d0a1b0331628f482b24e6b7b3cba3d3d5144127d908ef7f33ba4738b889853d38911b73e129df2756a8162ce7bb5a18b004afb772946b45a1b"
+        );
         bool success = v.verify("Ethereum is awesome !", sign, 0xE65a687748A2A86b9B6e4E290709B665FD1781F5);
         assertEq(success, true);
-
     }
-
 }

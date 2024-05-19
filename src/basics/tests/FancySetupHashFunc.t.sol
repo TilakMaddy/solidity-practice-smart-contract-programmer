@@ -7,25 +7,19 @@ import "lib/forge-std/src/console2.sol";
 import "../new/HashFunc.sol";
 
 contract FancyHashFuncTest is Test {
-
     error DeploymentFailed();
-    
+
     HashFunc hashFunc;
 
     function setUp() external {
-        
         bytes memory creationCode = type(HashFunc).creationCode;
-        
+
         address deployedAddr;
         bytes32 creationCodeLength;
 
         assembly {
             creationCodeLength := mload(creationCode)
-            deployedAddr := create(
-                0,
-                add(creationCode, 0x20),
-                creationCodeLength
-            )
+            deployedAddr := create(0, add(creationCode, 0x20), creationCodeLength)
         }
 
         console2.log("Creation Code Length: ");
@@ -36,10 +30,9 @@ contract FancyHashFuncTest is Test {
         }
 
         hashFunc = HashFunc(deployedAddr);
-
     }
 
-    function test_basicHashingFunction() public { 
+    function test_basicHashingFunction() public {
         bytes32 hashValue = hashFunc.hashIt("Ethereum", 2024, address(2024));
         console2.logBytes32(hashValue);
     }
@@ -76,5 +69,4 @@ contract FancyHashFuncTest is Test {
         - The said uint should be constant value (i infer) 
         
     */
-
 }

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED 
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
 contract Ownable {
@@ -8,7 +8,7 @@ contract Ownable {
         owner = msg.sender;
     }
 
-    modifier onlyOwner {
+    modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
         _;
     }

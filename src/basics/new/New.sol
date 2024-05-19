@@ -11,15 +11,12 @@ contract Account {
     }
 }
 
-
 contract AccountFactory {
-
     Account[] public accounts;
 
     function createAccount(address _owner) external payable {
         // The Account's constructor has to be marked payable
-        Account account = new Account{ value: msg.value }(_owner);
+        Account account = new Account{value: msg.value}(_owner);
         accounts.push(account);
     }
-
 }

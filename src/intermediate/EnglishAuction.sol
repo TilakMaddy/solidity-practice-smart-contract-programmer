@@ -7,7 +7,6 @@ time. The highest bidder gets to keep the item*/
 import "lib/forge-std/src/interfaces/IERC721.sol";
 
 contract EnglishAuction {
-
     // Item details
     IERC721 immutable nftAddress;
     uint256 immutable nftId;
@@ -25,5 +24,4 @@ contract EnglishAuction {
         nftAddress = _nftAddress;
         nftId = _nftId;
     }
-
 }
