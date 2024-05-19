@@ -5,7 +5,6 @@ import "lib/forge-std/src/Test.sol";
 import "../DataLocations.sol";
 
 contract DL is Test {
-
     DataLocations a;
 
     function setUp() external {
@@ -13,8 +12,7 @@ contract DL is Test {
     }
 
     function testDL() public {
-        uint[] memory numbers = new uint[](2);
+        uint256[] memory numbers = new uint256[](2);
         a.playWithLoc(numbers, numbers);
     }
-
 }

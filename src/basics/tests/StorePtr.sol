@@ -5,7 +5,6 @@ import "lib/forge-std/src/Test.sol";
 import "../StorePtr.sol";
 
 contract StorePtrTest is Test {
-
     StorePtr a;
 
     function setUp() external {
@@ -16,5 +15,4 @@ contract StorePtrTest is Test {
         assertEq(a.verifyM(), true);
         assertEq(a.verifyN(), true);
     }
-
 }

@@ -5,7 +5,6 @@ import "lib/forge-std/src/Test.sol";
 import "../Arr.sol";
 
 contract ArrTest is Test {
-
     Arr a;
 
     function setUp() external {
@@ -26,5 +25,4 @@ contract ArrTest is Test {
         console.log("abiencodepacked12");
         console2.logBytes(abi.encodePacked("a", "b"));
     }
-
 }

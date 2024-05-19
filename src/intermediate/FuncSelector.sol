@@ -2,10 +2,11 @@
 pragma solidity 0.8.19;
 
 contract FunctionSelector {
-    function getSelector(string calldata _func) external pure returns(bytes4) {
+    function getSelector(string calldata _func) external pure returns (bytes4) {
         return bytes4(keccak256(bytes(_func)));
     }
-     function getSelector2(string calldata _func) external pure returns(bytes4) {
+
+    function getSelector2(string calldata _func) external pure returns (bytes4) {
         return bytes4(keccak256(abi.encodePacked(_func)));
     }
 }

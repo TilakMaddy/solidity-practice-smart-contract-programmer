@@ -6,12 +6,12 @@ pragma solidity 0.8.19;
 */
 
 contract ErrorTypes {
-    function testRequire(uint x) external pure {
+    function testRequire(uint256 x) external pure {
         require(x < 10, "x is greater than or eq 10");
     }
 
     /* revert is better to use when condition to check is complex */
-    function testRevert(uint x) external pure {
+    function testRevert(uint256 x) external pure {
         if (x >= 5) {
             if (x >= 6) {
                 if (x >= 10) {
@@ -32,5 +32,4 @@ contract ErrorTypes {
     function useCustom() external pure {
         revert MyErr("");
     }
-
 }

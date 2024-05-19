@@ -5,7 +5,6 @@ import "lib/forge-std/src/Test.sol";
 import "../Constants.sol";
 
 contract ConstantsTest is Test {
-
     Constants c;
     Vars v;
 
@@ -15,18 +14,15 @@ contract ConstantsTest is Test {
     }
 
     function testGastCost() public view {
-        uint startGas = gasleft();
+        uint256 startGas = gasleft();
         c.MY_ADDRESS();
-        uint constReadGasCost = startGas - gasleft();
+        uint256 constReadGasCost = startGas - gasleft();
 
-
-        startGas = gasleft(); 
+        startGas = gasleft();
         v.MY_ADDRESS();
-        uint varsReadGasCost = startGas - gasleft();
+        uint256 varsReadGasCost = startGas - gasleft();
 
         console2.log(varsReadGasCost, constReadGasCost);
         assertGt(varsReadGasCost, constReadGasCost);
-
     }
-
 }

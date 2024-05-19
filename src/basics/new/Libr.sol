@@ -7,15 +7,14 @@ pragma solidity 0.8.19;
 // If a function in a library is internal,
 // it will be embedded into the contract using the library
 
-
 library Math {
-    function max(uint a, uint b) internal pure returns(uint) {
+    function max(uint256 a, uint256 b) internal pure returns (uint256) {
         return a > b ? a : b;
     }
 }
 
 contract Libr {
-    function getMax(uint a, uint b) external pure returns(uint) {
+    function getMax(uint256 a, uint256 b) external pure returns (uint256) {
         return Math.max(a, b);
     }
 }
@@ -23,9 +22,9 @@ contract Libr {
 ////////////////////////
 
 library NiceArrayUtils {
-    function indexOf(uint[] storage arr, uint n) internal view returns(uint) {
-        uint length = arr.length;
-        for (uint i = 0; i < length; ++i) {
+    function indexOf(uint256[] storage arr, uint256 n) internal view returns (uint256) {
+        uint256 length = arr.length;
+        for (uint256 i = 0; i < length; ++i) {
             if (arr[i] == n) {
                 return i;
             }
@@ -35,23 +34,23 @@ library NiceArrayUtils {
 }
 
 contract Array {
-    uint[] public arr = [1, 3, 5];
+    uint256[] public arr = [1, 3, 5];
 
-    function idx(uint n) external view returns(uint) {
+    function idx(uint256 n) external view returns (uint256) {
         return NiceArrayUtils.indexOf(arr, n);
     }
 }
 
-
 contract Array2 {
-    using NiceArrayUtils for uint[];
-    uint[] public arr = [1, 3, 5];
+    using NiceArrayUtils for uint256[];
 
-    function idx(uint n) external view returns(uint) {
+    uint256[] public arr = [1, 3, 5];
+
+    function idx(uint256 n) external view returns (uint256) {
         return arr.indexOf(n);
     }
 
-    function idx2(uint n) external view returns(uint) {
+    function idx2(uint256 n) external view returns (uint256) {
         return NiceArrayUtils.indexOf(arr, n);
     }
 

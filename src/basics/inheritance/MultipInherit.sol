@@ -18,14 +18,11 @@ Y |
 // contract Z is X, Y {}  // You should declare frommost based to most derived
 
 /**
-
-    In contract Z,
-    When customizing a function that you are inheriting from X and Y
-
-    you should specify `override(X, Y)` (order of x and y doesn't matter) in the function def
-
+ * In contract Z,
+ *     When customizing a function that you are inheriting from X and Y
+ *
+ *     you should specify `override(X, Y)` (order of x and y doesn't matter) in the function def
  */
-
 
 /*
 
