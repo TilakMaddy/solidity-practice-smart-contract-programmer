@@ -13,7 +13,7 @@ contract FunctionSelector {
 contract Receiver {
     event Log(bytes data);
 
-    function transfer(address _to, uint _amount) external {
+    function transfer() external {
         emit Log(msg.data);
     }
 }
